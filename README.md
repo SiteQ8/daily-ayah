@@ -1,10 +1,10 @@
-# Daily Quranic Ayah App
+# Daily Quran Ayah App
 
-A beautiful, responsive web application that displays a new Quranic Ayah every day with authentic Arabic text and English translation.
+A beautiful, responsive web application that displays a new Quran Ayah every day with authentic Arabic text and English translation.
 
 ## ✨ Features
 
-- 📖 **Daily Ayah**: Different authentic Quranic Ayah each day
+- 📖 **Daily Ayah**: Different authentic Quran Ayah each day
 - 🌙 **Dark Mode**: Beautiful dark theme support
 - 🎨 **6 Themes**: Light, Dark, Sunset, Forest, Ocean, Midnight
 - 🌍 **Bilingual**: Arabic and English interface **pending**
@@ -101,7 +101,7 @@ const QUOTES = [
 
 ## 🙏 Islamic Authenticity
 
-All Quranic Ayahs are authentic from the Holy Quran with verified English translations. Duas are from authentic Islamic sources.
+All Quran Ayahs are authentic from the Holy Quran with verified English translations. Duas are from authentic Islamic sources.
 
 ## 📄 License
 
@@ -114,7 +114,7 @@ Free to use and modify. Perfect for:
 ## 🤝 Contributing
 
 Feel free to:
-- Add more authentic Quranic Ayahs
+- Add more authentic Quran Ayahs
 - Improve translations
 - Add new languages
 - Report bugs
@@ -137,7 +137,7 @@ For issues or suggestions, please create an issue in the repository.
 - ✅ Copy to clipboard
 - ✅ Share functionality
 - ✅ Visit counter
-- ✅ Authentic Quranic Ayahs
+- ✅ Authentic Quran Ayahs
 - ✅ Islamic duas
 - ✅ No dependencies
 - ✅ Fast loading
