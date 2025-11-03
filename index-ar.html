@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="آية اليوم - قرآن كريم مع دعاء يومي">
+    <meta name="theme-color" content="#1a3a52">
+    <title>آية اليوم</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap');
+
+        :root {
+            --primary-blue: #1a3a52;
+            --light-blue: #f0f4f8;
+            --gold: #c9a961;
+            --white: #ffffff;
+            --dark-blue: #0f1f2e;
+            --accent-green: #2ecc71;
+            --accent-orange: #e67e22;
+            --shadow: 0 8px 32px rgba(26, 58, 82, 0.15);
+            --shadow-hover: 0 12px 48px rgba(26, 58, 82, 0.25);
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #e8f0f7 100%);
+            color: var(--primary-blue);
+            min-height: 100vh;
+            transition: all 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2a3a 100%);
+            color: var(--light-blue);
+        }
+
+        body.theme-sunset {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e72 50%, #ffa86c 100%);
+        }
+
+        body.theme-forest {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 50%, #1e8449 100%);
+        }
+
+        body.theme-ocean {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 50%, #2471a3 100%);
+        }
+
+        body.theme-midnight {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #1a252f 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #2a5a7a 100%);
+            color: var(--white);
+            padding: 40px 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .date-time {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .controls button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .controls button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .stat-card {
+            background: #1a2a3a;
+            color: var(--light-blue);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .verse-card {
+            background: var(--white);
+            padding: 50px 35px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verse-card::before {
+            content: '🕌';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 150px;
+            opacity: 0.03;
+        }
+
+        .dark-mode .verse-card {
+            background: #1a2a3a;
+            color: var(--light-blue);
+        }
+
+        .verse-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
+
+        .verse-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), #d4a574);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .surah-arabic {
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--gold);
+            font-family: 'Traditional Arabic', serif;
+            font-weight: 700;
+        }
+
+        .dark-mode .surah-arabic {
+            color: var(--gold);
+        }
+
+        .surah-reference {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .dark-mode .surah-reference {
+            color: var(--gold);
+        }
+
+        .verse-arabic {
+            font-size: 2.2em;
+            text-align: center;
+            margin: 40px 0;
+            line-height: 2.2;
+            font-family: 'Traditional Arabic', serif;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .dark-mode .verse-arabic {
+            color: var(--gold);
+        }
+
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--primary-blue), var(--gold), transparent);
+            margin: 35px 0;
+            border-radius: 2px;
+        }
+
+        .verse-english {
+            font-size: 1.15em;
+            line-height: 1.9;
+            text-align: center;
+            color: var(--primary-blue);
+            font-style: italic;
+            margin: 30px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .dark-mode .verse-english {
+            color: #d0d8e0;
+        }
+
+        .motivation-card {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15), rgba(26, 58, 82, 0.08));
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-right: 6px solid var(--gold);
+            box-shadow: var(--shadow);
+        }
+
+        .dark-mode .motivation-card {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), rgba(201, 169, 97, 0.08));
+            color: var(--light-blue);
+        }
+
+        .motivation-title {
+            font-size: 0.95em;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .motivation-arabic {
+            font-size: 1.6em;
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Traditional Arabic', serif;
+            color: var(--primary-blue);
+            line-height: 2;
+            font-weight: 600;
+        }
+
+        .dark-mode .motivation-arabic {
+            color: var(--gold);
+        }
+
+        .motivation-english {
+            font-size: 1.15em;
+            text-align: center;
+            color: var(--primary-blue);
+            margin: 18px 0;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .dark-mode .motivation-english {
+            color: #d0d8e0;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-blue), #2a5a7a);
+            color: var(--white);
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--gold), #d4a574);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--accent-green), #27ae60);
+        }
+
+        .btn-orange {
+            background: linear-gradient(135deg, var(--accent-orange), #d35400);
+        }
+
+        .message {
+            padding: 18px 24px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+            animation: slideInUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.success {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .message.info {
+            background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+            color: #0c5460;
+            border: 2px solid #17a2b8;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--primary-blue);
+            font-size: 0.95em;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .dark-mode .footer {
+            background: #1a2a3a;
+            color: var(--light-blue);
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .theme-selector {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .theme-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-btn.light { background: linear-gradient(135deg, #f0f4f8, #e8f0f7); }
+        .theme-btn.dark { background: linear-gradient(135deg, #0f1f2e, #1a2a3a); }
+        .theme-btn.sunset { background: linear-gradient(135deg, #ff6b6b, #ffa86c); }
+        .theme-btn.forest { background: linear-gradient(135deg, #27ae60, #1e8449); }
+        .theme-btn.ocean { background: linear-gradient(135deg, #3498db, #2471a3); }
+        .theme-btn.midnight { background: linear-gradient(135deg, #2c3e50, #1a252f); }
+
+        .theme-btn.active {
+            border-color: var(--gold);
+            transform: scale(1.2);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .verse-arabic { font-size: 1.5em; }
+            .action-buttons { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.5em; }
+            .verse-arabic { font-size: 1.2em; }
+            .action-buttons { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>آية اليوم</h1>
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="controls">
+                <button id="dark-toggle" onclick="toggleDarkMode()">Dark 🌙</button>
+                <button id="theme-toggle" onclick="toggleThemeMenu()">Themes 🎨</button>
+            </div>
+            <div class="theme-selector" id="theme-menu" style="display: none;">
+                <button class="theme-btn light active" onclick="setTheme('light')" title="Light"></button>
+                <button class="theme-btn dark" onclick="setTheme('dark')" title="Dark"></button>
+                <button class="theme-btn sunset" onclick="setTheme('sunset')" title="Sunset"></button>
+                <button class="theme-btn forest" onclick="setTheme('forest')" title="Forest"></button>
+                <button class="theme-btn ocean" onclick="setTheme('ocean')" title="Ocean"></button>
+                <button class="theme-btn midnight" onclick="setTheme('midnight')" title="Midnight"></button>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">6236</div>
+                <div class="stat-label">إجمالي الآيات</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">114</div>
+                <div class="stat-label">السور</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="visits">0</div>
+                <div class="stat-label">الزيارات</div>
+            </div>
+        </div>
+
+        <div id="message-container"></div>
+
+        <div class="verse-card">
+            <div style="text-align: center;">
+                <span class="verse-badge">📖 آية اليوم</span>
+            </div>
+            <div class="surah-arabic" id="surah-ar"></div>
+            <div class="surah-reference" id="surah-ref"></div>
+            <div class="verse-arabic" id="verse-arabic"></div>
+            <div class="divider"></div>
+            <div class="verse-english" id="verse-english"></div>
+        </div>
+
+        <div class="motivation-card">
+            <div class="motivation-title">💡 الدعاء اليومي</div>
+            <div class="motivation-arabic" id="motivation-ar"></div>
+            <div class="motivation-english" id="motivation-en"></div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-secondary" onclick="getRandomVerse()">🔄 آية أخرى</button>
+            <button class="btn btn-success" onclick="copyVerse()">📋 نسخ</button>
+            <button class="btn btn-orange" onclick="shareVerse()">📤 مشاركة</button>
+        </div>
+
+        <div class="footer">
+            <p>✨ <strong>آية اليوم - تطبيق قرآني يومي</strong> ✨</p>
+            <p>تطوير: <a href="https://github.com/SiteQ8" target="_blank">SiteQ8</a> ❤️</p>
+            <p style="margin-top: 10px;">📖 آيات دقيقة | 🌍 ثنائي اللغة | 📱 متوافق الأجهزة</p>
+        </div>
+    </div>
+
+    <script>
+        // جميع الآيات الصحيحة من القرآن الكريم
+        const VERSES = {
+            2: {ar: "البقرة", ref: "البقرة 2:255", verses: [
+                {v: 255, ar: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ", en: "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great."}
+            ]},
+            39: {ar: "الزمر", ref: "الزمر 39:53", verses: [
+                {v: 53, ar: "قُلْ يَا عِبَادِ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا ۚ إِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ", en: "Say, 'O My servants who have transgressed against themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful.'"}
+            ]},
+            55: {ar: "الرحمن", ref: "الرحمن 55:13", verses: [
+                {v: 13, ar: "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ", en: "Then which of your Lord's favors will you both deny?"}
+            ]},
+            94: {ar: "الشرح", ref: "الشرح 94:5", verses: [
+                {v: 5, ar: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا", en: "Indeed, with hardship comes ease."}
+            ]},
+            112: {ar: "الإخلاص", ref: "الإخلاص 112:1", verses: [
+                {v: 1, ar: "قُلْ هُوَ اللَّهُ أَحَدٌ", en: "Say, He is Allah, who is One."}
+            ]}
+        };
+
+        const QUOTES = [
+            {ar: "اللهم إني أسألك الخير في كل أحوالي", en: "O Allah, I ask You for goodness in all my states"},
+            {ar: "اللهم اهدنا فيمن هديت", en: "O Allah, guide us among those You have guided"},
+            {ar: "سبحان الله وبحمده، سبحان الله العظيم", en: "Glorified be Allah and praised be He, glorified be Allah the Supreme"},
+            {ar: "لا حول ولا قوة إلا بالله العلي العظيم", en: "There is no power or might except by Allah the Most High, the Most Great"},
+            {ar: "الحمد لله على كل حال", en: "Praise be to Allah in every circumstance"}
+        ];
+
+        let lang = 'ar';
+        let isDark = localStorage.getItem('isDark') === 'true';
+        let visits = parseInt(localStorage.getItem('visits') || '0');
+        let currentVerse = null;
+
+        function getDailyVerse() {
+            const today = new Date().toISOString().split('T')[0];
+            const dateNum = parseInt(today.replace(/-/g, ''));
+            const surahKeys = Object.keys(VERSES).map(k => parseInt(k));
+            const surah = surahKeys[dateNum % surahKeys.length];
+            const data = VERSES[surah];
+            const verse = data.verses[0];
+            return {surah, verse, data};
+        }
+
+        function displayVerse(surah, verse, data) {
+            currentVerse = {surah, verse, data};
+            const quote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+
+            document.getElementById('surah-ar').textContent = data.ar;
+            document.getElementById('surah-ref').textContent = data.ref;
+            document.getElementById('verse-arabic').textContent = verse.ar;
+            document.getElementById('verse-english').textContent = verse.en;
+            document.getElementById('motivation-ar').textContent = quote.ar;
+            document.getElementById('motivation-en').textContent = quote.en;
+        }
+
+        function updateUI() {
+            const now = new Date();
+            document.getElementById('current-date').textContent = lang === 'ar' ? 
+                now.toLocaleDateString('ar-SA', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}) :
+                now.toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+            document.getElementById('current-time').textContent = now.toLocaleTimeString(lang === 'ar' ? 'ar-SA' : 'en-US', {hour: '2-digit', minute: '2-digit'});
+            
+            document.getElementById('lang-toggle').textContent = lang === 'ar' ? 'English 🌍' : 'العربية 🌍';
+            document.getElementById('dark-toggle').textContent = lang === 'ar' ? 'Dark 🌙' : 'Dark 🌙';
+            document.getElementById('theme-toggle').textContent = lang === 'ar' ? 'Themes 🎨' : 'Themes 🎨';
+            document.querySelectorAll('.action-buttons button')[0].textContent = lang === 'ar' ? '🔄 آية أخرى' : '🔄 Another Verse';
+            document.querySelectorAll('.action-buttons button')[1].textContent = lang === 'ar' ? '📋 نسخ' : '📋 Copy';
+            document.querySelectorAll('.action-buttons button')[2].textContent = lang === 'ar' ? '�024 مشاركة' : '📤 Share';
+
+            if (currentVerse) displayVerse(currentVerse.surah, currentVerse.verse, currentVerse.data);
+        }
+
+        function toggleLanguage() {
+            lang = lang === 'ar' ? 'en' : 'ar';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            updateUI();
+        }
+
+        function toggleDarkMode() {
+            isDark = !isDark;
+            localStorage.setItem('isDark', isDark);
+            document.body.classList.toggle('dark-mode', isDark);
+        }
+
+        function toggleThemeMenu() {
+            const menu = document.getElementById('theme-menu');
+            menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function setTheme(t) {
+            document.body.classList.remove('theme-sunset', 'theme-forest', 'theme-ocean', 'theme-midnight');
+            if (t !== 'light') document.body.classList.add('theme-' + t);
+            document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function getRandomVerse() {
+            const surahKeys = Object.keys(VERSES).map(k => parseInt(k));
+            const surah = surahKeys[Math.floor(Math.random() * surahKeys.length)];
+            const data = VERSES[surah];
+            const verse = data.verses[0];
+            displayVerse(surah, verse, data);
+            showMsg(lang === 'ar' ? 'تم تحميل آية جديدة' : 'New verse loaded', 'info');
+        }
+
+        function copyVerse() {
+            if (!currentVerse) return;
+            const text = `${currentVerse.verse.ar}\n\n${currentVerse.verse.en}`;
+            navigator.clipboard.writeText(text);
+            showMsg(lang === 'ar' ? 'تم النسخ!' : 'Copied!', 'success');
+        }
+
+        function shareVerse() {
+            if (!currentVerse) return;
+            if (navigator.share) {
+                navigator.share({title: lang === 'ar' ? 'آية اليوم' : 'Daily Verse', text: currentVerse.verse.ar});
+            } else {
+                copyVerse();
+            }
+        }
+
+        function showMsg(msg, type) {
+            const div = document.createElement('div');
+            div.className = 'message ' + type;
+            div.textContent = msg;
+            document.getElementById('message-container').appendChild(div);
+            setTimeout(() => div.remove(), 2500);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (isDark) document.body.classList.add('dark-mode');
+            visits++;
+            localStorage.setItem('visits', visits);
+            document.getElementById('visits').textContent = visits;
+            const {surah, verse, data} = getDailyVerse();
+            displayVerse(surah, verse, data);
+            updateUI();
+            setInterval(updateUI, 60000);
+        });
+    </script>
+</body>
+</html>
