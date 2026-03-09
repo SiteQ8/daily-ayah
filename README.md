@@ -121,6 +121,6 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 <p align="center">
   <sub>بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</sub><br>
-  <sub>Built with ❤️ by <a href="https://github.com/SiteQ8">@SiteQ8</a> — Ali AlEnezi 🇰🇼</sub><br>
+  <sub>Built by <a href="https://github.com/SiteQ8">@SiteQ8</a> — Ali AlEnezi 🇰🇼</sub><br>
   <sub>"إِنَّ مَعَ الْعُسْرِ يُسْرًا" — الشرح 94:5</sub>
 </p>
