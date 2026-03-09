@@ -1,150 +1,126 @@
-# Daily Quran Ayah App
+# 📖 آية اليوم | Daily Ayah
 
-A beautiful, responsive web application that displays a new Quran Ayah every day with authentic Arabic text and English translation.
+<p align="center">
+  <a href="https://siteq8.github.io/daily-ayah"><img src="https://img.shields.io/badge/🚀-Live_Demo-10b981?style=flat-square" alt="Live Demo"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Quran-6236_Ayahs-c9a961?style=flat-square" alt="Ayahs"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Surahs-114-1a3a52?style=flat-square" alt="Surahs"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Script-Uthmani-3b82f6?style=flat-square" alt="Uthmani"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Translation-Sahih_International-059669?style=flat-square" alt="Translation"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/lang-AR%20%7C%20EN-c9a961?style=flat-square" alt="Bilingual"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-gold?style=flat-square" alt="License"/></a>
+</p>
 
-## ✨ Features
+**The complete Holy Quran — 114 Surahs, 6,236 Ayahs** — in a beautiful, responsive daily ayah web app with authenticated Arabic text (Uthmani script) and verified English translation (Sahih International).
 
-- 📖 **Daily Ayah**: Different authentic Quran Ayah each day
-- 🌙 **Dark Mode**: Beautiful dark theme support
-- 🎨 **6 Themes**: Light, Dark, Sunset, Forest, Ocean, Midnight
-- 🌍 **Bilingual**: Arabic and English interface **pending**
-- 📱 **Fully Responsive**: Works on all devices
-- 💡 **Daily Dua**: Islamic supplication with each Ayah
-- ⚡ **Zero Dependencies**: Pure HTML, CSS, JavaScript
-- 🚀 **Fast & Lightweight**: Instant loading
-- 📊 **Visit Counter**: Track your visits
-
-
-## 🚀 Getting Started
-
-### Option 1: Direct Deployment to GitHub Pages
-
-1. Fork this repository
-2. Rename to `daily-quran-Ayah` (for GitHub Pages)
-3. Go to Settings → Pages
-4. Select "Deploy from a branch"
-5. Choose main branch
-6. Your site is live at: `https://siteq8.github.io/daily-Ayah`
-
-### Option 2: Local Testing
-
-Simply open `index.html` in your browser - no server required!
-
-## 📁 Repository Structure
-
-```
-daily-quran-Ayah/
-├── index.html          # Main application
-├── README.md           # This file
-└── docs/              # GitHub Pages folder (optional)
-    └── index.html     # Copy of main for GitHub Pages
-```
-
-## 🎯 How to Use
-
-1. **Daily Ayah**: Opens automatically - same Ayah for all users each day
-2. **Random Ayah**: Click "Another Ayah" button to see a random Ayah
-3. **Copy**: Click "Copy" to copy Ayah to clipboard
-4. **Share**: Click "Share" to share Ayah (on supported devices)
-5. **Language**: Toggle between Arabic and English
-6. **Theme**: Choose from 6 beautiful themes
-7. **Dark Mode**: Perfect for night reading
-
-## 🔧 Customization
-
-### Adding More Ayahs
-
-Edit the `AyahS` object in the script:
-
-```javascript
-const AyahS = {
-    SURAH_NUMBER: {
-        ar: "اسم السورة",
-        ref: "السورة X:Y",
-        Ayahs: [
-            {
-                v: Ayah_NUMBER,
-                ar: "النص العربي الكامل",
-                en: "Complete English translation"
-            }
-        ]
-    }
-};
-```
-
-### Adding More Duas
-
-Edit the `QUOTES` array:
-
-```javascript
-const QUOTES = [
-    {ar: "الدعاء العربي", en: "English supplication"}
-];
-```
-
-## 🎨 Themes
-
-- **Light** - Soft blue and white (default)
-- **Dark** - Dark blue background
-- **Sunset** - Warm orange and red tones
-- **Forest** - Green nature theme
-- **Ocean** - Cool blue theme
-- **Midnight** - Deep dark blue theme
-
-## 📱 Browser Support
-
-- Chrome/Chromium
-- Firefox
-- Safari
-- Edge
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 🙏 Islamic Authenticity
-
-All Quran Ayahs are authentic from the Holy Quran with verified English translations. Duas are from authentic Islamic sources.
-
-## 📄 License
-
-Free to use and modify. Perfect for:
-- Islamic education websites
-- Personal daily reflection
-- Community groups
-- Quran study apps
-
-## 🤝 Contributing
-
-Feel free to:
-- Add more authentic Quran Ayahs
-- Improve translations
-- Add new languages
-- Report bugs
-- Suggest themes
-
-## 👨‍💻 Developer
-
-Created by **@SiteQ8**
-
-## 📞 Support
-
-For issues or suggestions, please create an issue in the repository.
-
-## ✅ Features Checklist
-
-- ✅ Arabic & English bilingual
-- ✅ 6 Premium themes
-- ✅ Dark mode
-- ✅ Mobile responsive
-- ✅ Copy to clipboard
-- ✅ Share functionality
-- ✅ Visit counter
-- ✅ Authentic Quran Ayahs
-- ✅ Islamic duas
-- ✅ No dependencies
-- ✅ Fast loading
-- ✅ Beautiful animations
+🔗 **Live Demo:** [https://siteq8.github.io/daily-ayah](https://siteq8.github.io/daily-ayah)
 
 ---
 
-**حفظك الله - May Allah protect you**
+## 📋 Quran Text Sources & Validation
 
-"Indeed, with hardship comes ease" - Quran 94:5
+> **All Quran text in this app is sourced from authenticated, trusted origins. The Arabic text is never manually typed — it is fetched from validated API sources.**
+
+| Component | Source | Validation |
+|-----------|--------|------------|
+| **Arabic Text** | Uthmani Script (خط عثماني) | King Fahd Complex for Printing the Holy Quran, Madinah |
+| **English Translation** | Sahih International | Authenticated translation reviewed by qualified scholars |
+| **Data API** | [AlQuran Cloud API](https://alquran.cloud) | Open-source Quran API serving the Uthmani edition |
+| **Surah Metadata** | 114 surahs, ayah counts, revelation types | Verified against King Fahd Mushaf (total: 6,236 ayahs) |
+| **Duas** | Quran & Sahih Hadith collections | With source reference (surah/hadith citation) |
+
+The app includes a runtime assertion that validates the total ayah count across all 114 surahs equals exactly **6,236** — the authenticated count of the Holy Quran.
+
+---
+
+## ✨ Features
+
+### v2.0 (Current)
+- 📖 **Complete Quran** — All 114 surahs, all 6,236 ayahs accessible
+- 🕌 **Daily Ayah** — Deterministic daily ayah cycling through the entire Quran (one new ayah per day)
+- 📚 **Surah Browser** — Browse all 114 surahs with search, view complete surah text
+- 🔤 **Uthmani Script** — Authentic Arabic text using `Amiri Quran` font
+- 🌍 **Sahih International** — Verified English translation
+- 🌙 **Dark Mode** — Toggle with localStorage persistence
+- 🔀 **Random Ayah** — Load any random ayah from the entire Quran
+- 📋 **Copy & Share** — Copy ayah text or use Web Share API
+- 💡 **Daily Dua** — Authentic supplications from Quran & Hadith with source citations
+- 📱 **Fully Responsive** — Desktop, tablet, mobile optimized
+- ⚡ **Zero Dependencies** — Pure HTML/CSS/JS (API for Quran text)
+- ℹ️ **Source Attribution** — Full sources tab with links to Quran.com, AlQuran.cloud, Tanzil.net, QuranEnc.com
+
+---
+
+## 🚀 Quick Start
+
+### GitHub Pages (Recommended)
+1. Fork this repository
+2. Go to **Settings → Pages**
+3. Select source: `main` branch and `/docs` folder
+4. Your site publishes at `https://[username].github.io/daily-ayah/`
+
+### Local
+```bash
+git clone https://github.com/SiteQ8/daily-ayah.git
+cd daily-ayah
+open docs/index.html
+```
+
+> **Note:** The app requires internet connection to fetch Quran text from the AlQuran Cloud API. Surah metadata (names, ayah counts) is embedded for offline browsing.
+
+---
+
+## 🏗️ Architecture
+
+```
+daily-ayah/
+├── docs/
+│   └── index.html        # Complete app (HTML + CSS + JS)
+├── README.md              # This file
+├── LICENSE                # MIT License
+└── SECURITY.md            # Security policy
+```
+
+### How It Works
+
+1. **Daily Ayah**: Calculates a deterministic index from today's date, maps it to one of 6,236 ayahs, fetches from API
+2. **Surah Browser**: Renders 114 surah cards from embedded metadata, fetches full surah text on demand
+3. **API Source**: `api.alquran.cloud/v1` — fetches `quran-uthmani` (Arabic) + `en.sahih` (English) editions
+4. **Validation**: Console assertion verifies total ayah count = 6,236 on every page load
+
+---
+
+## 📚 Quran API Details
+
+The app uses the [AlQuran Cloud API](https://alquran.cloud/api):
+
+| Endpoint | Purpose |
+|----------|---------|
+| `/v1/ayah/{surah}:{ayah}/editions/quran-uthmani,en.sahih` | Fetch single ayah (Arabic + English) |
+| `/v1/surah/{number}/editions/quran-uthmani,en.sahih` | Fetch complete surah |
+
+The `quran-uthmani` edition provides the text as printed in the King Fahd Complex Mushaf.
+
+---
+
+## 🤝 Contributing
+
+Contributions welcome — especially:
+- 🌐 Additional translations (Urdu, French, Turkish, Malay, etc.)
+- ♿ Accessibility improvements
+- 🎨 Additional themes
+- 🔊 Audio recitation integration
+- 📖 Tafsir (exegesis) overlay
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  <sub>بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</sub><br>
+  <sub>Built with ❤️ by <a href="https://github.com/SiteQ8">@SiteQ8</a> — Ali AlEnezi 🇰🇼</sub><br>
+  <sub>"إِنَّ مَعَ الْعُسْرِ يُسْرًا" — الشرح 94:5</sub>
+</p>
